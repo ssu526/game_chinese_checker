@@ -4,10 +4,11 @@ let roomId, playerId, playerColor, gameboard, currentPlayer, selected_piece, all
 /************************************************************************************************/
 /*                                CREATE ROOM, JOIN ROOM, START GAME                            */
 /************************************************************************************************/
-txt_newRoomId.innerHTML=generateRandomId();
+// txt_newRoomId.innerHTML=generateRandomId();
 
 btn_createRoom.addEventListener('click', ()=>{
-    roomId=txt_newRoomId.innerHTML;
+    // roomId=txt_newRoomId.innerHTML;
+    roomId=generateRandomId();
     let playerName=input_PlayerName_create.value.trim();
     let roomCapacity=parseInt(select_numberOfPlayer.value);
 
@@ -30,7 +31,7 @@ btn_joinRoom.addEventListener('click', ()=>{
 });
 
 socket.on("joined", (player, color)=>{
-    showGameScreen();
+    showGameScreen(roomId);
     playerId=player;
     playerColor=color;
 })
@@ -51,8 +52,17 @@ socket.on("startGame", (board, firstPlayerName)=>{
     allow_single_step=true;
     validNextMoves=[];
 
+    waitingEl.style.visibility="hidden"
+    button_done.style.visibility = "visible";
     button_done_text.innerHTML = firstPlayerName;
     button_done.style.backgroundColor="red";
+
+    img_winner.src="./images/questionMark.png";
+
+    const step_counters = document.querySelectorAll(".marble p");
+    step_counters.forEach(counter=>{
+        counter.innerHTML="0";
+    })
     
     drawGameboard();
 })
@@ -102,6 +112,7 @@ socket.on("increaseSteps", (playerColor, steps)=>{
     domElement_steps.innerHTML=steps;
 })
 
+
 /************************************************************************************************/
 /*                           GAME SCREEN EVENT - CANVAS, RESET, DONE                            */
 /************************************************************************************************/
@@ -134,13 +145,6 @@ button_done.addEventListener('click', ()=>{
 
 button_reset.addEventListener('click', ()=>{
     socket.emit("reset", roomId);
-
-    img_winner.src="./images/questionMark.png";
-
-    const step_counters = document.querySelectorAll(".marble p");
-    step_counters.forEach(counter=>{
-        counter.innerHTML="0";
-    })
 });
 
 /************************************************************************************************/
@@ -248,9 +252,10 @@ function play(event){
     }
 }
 
-function showGameScreen(){
+function showGameScreen(roomId){
     container_startScreen.style.display="none";
     container_gameScreen.style.display="grid";
+    roomidEl.innerHTML=roomId;
 }
 
 function generateRandomId(){

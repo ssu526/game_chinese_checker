@@ -56,6 +56,8 @@ const txt_errorMessage_join = document.querySelector(".errorMessage_join");
 
 // DOM - GAME SCREEN
 const container_gameScreen = document.querySelector(".container");
+const roomidEl = document.querySelector(".gameboard-roomid")
+const waitingEl = document.querySelector(".waiting");
 
 // DOM - GAME SCREEN - DONE AND RESET BUTTON
 const button_done = document.querySelector(".done");

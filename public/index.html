@@ -19,7 +19,8 @@
         <div class="option createRoom">
             <!-- CREATE ROOM -->
             <p class="option-title"><span class="option-subtitle">Create & Join</span> a new room</p>
-            <p>New Room ID: <span class="newRoomId"></span></p>
+            <!-- <p>New Room ID: <span class="newRoomId"></span></p> -->
+
             <input type="text" class="input_playerName_create" placeholder="Player Name" />
 
             <select class="selectNumberOfPlayers">
@@ -35,8 +36,8 @@
         <!-- JOIN ROOM -->
         <div class="option joinRoom">
             <p class="option-title"><span class="option-subtitle">Join</span> an existing room</p>
-            <input type="text" class="input_roomId" placeholder="Room ID" />
             <input type="text" class="input_playerName_join" placeholder="Player Name" />
+            <input type="text" class="input_roomId" placeholder="Room ID" />
             <button class="btn_join">Join Room</button>
             <p class="errorMessage_join"></p>
         </div>
@@ -44,6 +45,7 @@
     </div>
 
     <div class="container">
+        <p>Room ID: <span class="gameboard-roomid">df</span></p>
         <div class="sidebar winner">
             <p class="winner_label">Winner:</p>
             <img src="./images/questionMark.png">
@@ -85,12 +87,16 @@
 
         <button class="sidebar reset">RESET</button>
 
+        <div class="waiting">Waiting for other players to join...</div>
+
         <div class="canvas_container"><canvas id="gameboard"></canvas></div>
 
         <button class="done">
-            Current Player:
-            <span class="currentPlayer">Player 1</span>
-            <span class="tooltiptext">Click here when you are done.</span>
+            <div>
+                <span>Current Player : </span>
+                <span class="currentPlayer"></span>
+            </div>
+            <p class="tip">Click here when you are done.</p>
         </button>
     </div>
 

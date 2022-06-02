@@ -53,7 +53,7 @@ io.on("connection", socket=>{
 
                 socket.join(roomId);
 
-                socket.emit("joined", currentNumber, rooms[roomId].colors[currentNumber]);
+                socket.emit("joined", currentNumber, rooms[roomId].colors[currentNumber], roomId);
                 io.to(roomId).emit("announceNewPlayer", playerName);
 
                 rooms[roomId].numberOfPlayers=currentNumber+1;
@@ -129,9 +129,11 @@ io.on("connection", socket=>{
     })
 
     socket.on("reset", (roomId)=>{
-        const gameboard = initGameboard(rooms[roomId]);
-        const firstPlayerName = rooms[roomId].playerNames[0];
-        io.to(roomId).emit("startGame", gameboard, firstPlayerName);
+        if(rooms[roomId].capacity==rooms[roomId].numberOfPlayers){
+            const gameboard = initGameboard(rooms[roomId]);
+            const firstPlayerName = rooms[roomId].playerNames[0];
+            io.to(roomId).emit("startGame", gameboard, firstPlayerName);
+        }
     })
 })
 
