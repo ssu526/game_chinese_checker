@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="#">
+    <title>Chinese Checker</title>
+</head>
+
+<body>
+
+    <div class="startScreen">
+        <!-- <i class="fas fa-star fa-2x"></i> -->
+
+        <div class="option createRoom">
+            <!-- CREATE ROOM -->
+            <p class="option-title"><span class="option-subtitle">Create & Join</span> a new room</p>
+            <p>New Room ID: <span class="newRoomId"></span></p>
+            <input type="text" class="input_playerName_create" placeholder="Player Name" />
+
+            <select class="selectNumberOfPlayers">
+                <option value=2 selected>Number of players: 2</option>
+                <option value=3>Number of players: 3</option>
+                <option value=4>Number of players: 4</option>
+                <option value=6>Number of players: 6</option>
+            </select>
+            <button class="btn_create">Create & Join</button>
+            <p class="errorMessage_create"></p>
+        </div>
+
+        <!-- JOIN ROOM -->
+        <div class="option joinRoom">
+            <p class="option-title"><span class="option-subtitle">Join</span> an existing room</p>
+            <input type="text" class="input_roomId" placeholder="Room ID" />
+            <input type="text" class="input_playerName_join" placeholder="Player Name" />
+            <button class="btn_join">Join Room</button>
+            <p class="errorMessage_join"></p>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <div class="sidebar winner">
+            <p class="winner_label">Winner:</p>
+            <img src="./images/questionMark.png">
+        </div>
+
+        <div class="sidebar step-counter">
+            <p class="step_label">Steps</p>
+
+            <div class="marble red">
+                <div class="img_container"><img src="./images/red.png"></div>
+                <p>0</p>
+            </div>
+
+            <div class="marble green">
+                <div class="img_container"><img src="./images/green.png"></div>
+                <p>0</p>
+            </div>
+
+            <div class="marble blue">
+                <div class="img_container"><img src="./images/blue.png"></div>
+                <p>0</p>
+            </div>
+
+            <div class="marble black">
+                <div class="img_container"><img src="./images/black.png"></div>
+                <p>0</p>
+            </div>
+
+            <div class="marble purple">
+                <div class="img_container"><img src="./images/purple.png"></div>
+                <p>0</p>
+            </div>
+
+            <div class="marble orange">
+                <div class="img_container"><img src="./images/orange.png"></div>
+                <p>0</p>
+            </div>
+        </div>
+
+        <button class="sidebar reset">RESET</button>
+
+        <div class="canvas_container"><canvas id="gameboard"></canvas></div>
+
+        <button class="done">
+            Current Player:
+            <span class="currentPlayer">Player 1</span>
+            <span class="tooltiptext">Click here when you are done.</span>
+        </button>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="domAndConstants.js"></script>
+    <script src="client.js "></script>
+</body>
+
+</html>
