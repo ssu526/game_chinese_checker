@@ -45,59 +45,64 @@
     </div>
 
     <div class="container">
-        <p>Room ID: <span class="gameboard-roomid">df</span></p>
-        <div class="sidebar winner">
-            <p class="winner_label">Winner:</p>
-            <img src="./images/questionMark.png">
+        <!-- sidebar -->
+        <div class="sidebar-container">
+            <div class="sidebar winner">
+                <p class="winner_label">Winner</p>
+                <img src="./images/questionMark.png">
+            </div>
+
+            <div class="sidebar step-counter">
+                <p class="step_label">Steps</p>
+
+                <div class="marble red">
+                    <div class="img_container"><img src="./images/red.png"></div>
+                    <p>0</p>
+                </div>
+
+                <div class="marble green">
+                    <div class="img_container"><img src="./images/green.png"></div>
+                    <p>0</p>
+                </div>
+
+                <div class="marble blue">
+                    <div class="img_container"><img src="./images/blue.png"></div>
+                    <p>0</p>
+                </div>
+
+                <div class="marble black">
+                    <div class="img_container"><img src="./images/black.png"></div>
+                    <p>0</p>
+                </div>
+
+                <div class="marble purple">
+                    <div class="img_container"><img src="./images/purple.png"></div>
+                    <p>0</p>
+                </div>
+
+                <div class="marble orange">
+                    <div class="img_container"><img src="./images/orange.png"></div>
+                    <p>0</p>
+                </div>
+            </div>
+
+            <button class="sidebar reset">RESET</button>
+            <p class="roomid-text">Room ID: <span class="gameboard-roomid"></span></p>
         </div>
-
-        <div class="sidebar step-counter">
-            <p class="step_label">Steps</p>
-
-            <div class="marble red">
-                <div class="img_container"><img src="./images/red.png"></div>
-                <p>0</p>
-            </div>
-
-            <div class="marble green">
-                <div class="img_container"><img src="./images/green.png"></div>
-                <p>0</p>
-            </div>
-
-            <div class="marble blue">
-                <div class="img_container"><img src="./images/blue.png"></div>
-                <p>0</p>
-            </div>
-
-            <div class="marble black">
-                <div class="img_container"><img src="./images/black.png"></div>
-                <p>0</p>
-            </div>
-
-            <div class="marble purple">
-                <div class="img_container"><img src="./images/purple.png"></div>
-                <p>0</p>
-            </div>
-
-            <div class="marble orange">
-                <div class="img_container"><img src="./images/orange.png"></div>
-                <p>0</p>
-            </div>
-        </div>
-
-        <button class="sidebar reset">RESET</button>
 
         <div class="waiting">Waiting for other players to join...</div>
 
-        <div class="canvas_container"><canvas id="gameboard"></canvas></div>
-
-        <button class="done">
-            <div>
-                <span>Current Player : </span>
-                <span class="currentPlayer"></span>
-            </div>
-            <p class="tip">Click here when you are done.</p>
-        </button>
+        <!-- canvas -->
+        <div class="canvas_container">
+            <canvas id="gameboard"></canvas>
+            <button class="done">
+                <div>
+                    <span>Current Player : </span>
+                    <span class="currentPlayer"></span>
+                </div>
+                <p class="tip">Click here when you are done.</p>
+            </button>
+        </div>
     </div>
 
     <script src="/socket.io/socket.io.js"></script>

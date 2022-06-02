@@ -52,8 +52,9 @@ socket.on("startGame", (board, firstPlayerName)=>{
     allow_single_step=true;
     validNextMoves=[];
 
-    waitingEl.style.visibility="hidden"
-    button_done.style.visibility = "visible";
+    waitingEl.style.display="none";
+    canvas_container.style.display="block";
+
     button_done_text.innerHTML = firstPlayerName;
     button_done.style.backgroundColor="red";
 
@@ -254,7 +255,7 @@ function play(event){
 
 function showGameScreen(roomId){
     container_startScreen.style.display="none";
-    container_gameScreen.style.display="grid";
+    container_gameScreen.style.display="flex";
     roomidEl.innerHTML=roomId;
 }
 

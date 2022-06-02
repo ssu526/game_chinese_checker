@@ -16,12 +16,14 @@ body {
   width: 100vw;
 }
 
+
 /***** START SCREEN *****/
 .startScreen {
   height: 100vh;
   width: 100vw;
   background-color: black;
   display: flex;
+  /* display: none; */
   justify-content: center;
   align-items: center;
 }
@@ -97,104 +99,85 @@ i {
 }
 
 /***** GAME SCREEN *****/
-.container {
-  margin: auto;
+.container{
   display: none;
-  
-  grid-template-areas:
-    "winnerArea canvasArea canvasArea"
-    "stepCounter canvasArea canvasArea"
-    "resetArea gameButtonArea gameButtonArea";
-}
-
-.gameboard-roomid{
-  color: white;
-}
-
-.winner {
-  grid-area: winnerArea;
-}
-
-.step-counter {
-  grid-area: stepCounter;
-}
-
-.reset {
-  grid-area: resetArea;
-}
-
-.canvas_container {
-  grid-area: canvasArea;
-}
-
-.done {
-  grid-area: gameButtonArea;
-  cursor: pointer;
-  border: none;
-  outline: none;
-  font-size: 20px;
-  font-weight: bold;
-  padding: 5px;
-  visibility: hidden;
-}
-
-.tip{
-  font-size: 12px;
-}
-
-.waiting{
-  color: white;
-  font-size: 30px;
-  text-align: center;
-  width: 100vw;
+  padding: 50px;
+  margin: auto;
+  border: 1px solid white;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
 
-/**** SIDE BAR ****/
-.sidebar {
-  width: 150px;
-  background-color: rgb(31, 30, 30);
-  color: white;
+/*** SIDEBAR **/
+.sidebar-container{
   margin-right: 50px;
 }
 
-/* *** SIDE BAR - STEPS & RESET ****/
-.step-counter {
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  padding-bottom: 50px;
-}
-
-.sidebar p {
-  font-size: 20px;
-  text-align: center;
-  font-weight: bold;
-}
-
-.step_label {
+.sidebar{
+  width: 110px;
+  background-color: rgb(31, 30, 30);
+  border-radius: 10px;
   margin-bottom: 20px;
-  font-size: 30px;
-}
-
-.marble {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
 }
 
 img {
   width: 30px;
   height: 30px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
+/**** SIDEBAR - WINNER***/
+.winner{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.winner_label {
+  font-weight: bold;
+  text-align: center;
+  color: gray;
+}
+
+.winner img{
+  margin-bottom: 20px;
+}
+
+  /* *** SIDEBAR - STEPS & RESET ****/
+  .step-counter {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-bottom: 50px;
+  }
+  
+  .sidebar p {
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: gray;
+  }
+  
+  .step_label {
+    margin-bottom: 20px;
+    font-size: 30px;
+  }
+  
+  .marble {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+
+/**** SIDEBAR - RESET***/
 .reset {
-  margin-top: 40px;
   padding: 20px;
   font-size: 16px;
   border-radius: 10px;
   border: none;
   outline: none;
+  color: gray;
 }
 
 .reset:hover {
@@ -203,47 +186,59 @@ img {
     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
+/**** SIDEBAR - ROOM ID***/
 .gameboard-roomid{
+  color: white;
   display: block;
 }
 
-/* *** SIDE BAR - WINNER****/
-.winner {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-.winner_label {
-  margin-bottom: 20px;
-  font-size: 30px;
-  font-weight: bold;
+.roomid-text{
+  color: gray;
   text-align: center;
 }
 
-.winner img {
-  object-fit: contain;
+
+/**** GAME AREA***/
+.canvas_container{
+  display: flex;
+  flex-direction: column;
 }
 
-/*** GAME AREA ***/
-canvas {
-  margin: auto;
-  display: block;
-}
 
+
+/*** DONE BUTTON ***/
 .done {
+  cursor: pointer;
   border-radius: 10px;
-  width: 300px;
+  border: none;
+  outline: none;
+  width: 400px;
   color: blanchedalmond;
   display: block;
   margin: auto;
   margin-top: 50px;
+  padding: 10px;
 }
 
 .done:hover {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.done div span{
+  font-size: 20px;
+}
+
+
+/*** CANVAS ***/
+.canvas_container{
+  display: none;
+}
+
+
+/*** WAITING ***/
+.waiting{
+  color: white;
+  font-size: 30px;
+  margin: auto;
 }

@@ -71,6 +71,7 @@ let img_winner = document.querySelector(".winner img");
 // DOM - GAME SCREEN - CANVAS
 const canvas = document.querySelector("#gameboard");
 const ctx = canvas.getContext('2d');
+const canvas_container = document.querySelector(".canvas_container");
 
 ctx.canvas.width = NUM_OF_COLS * CELL_WIDTH;
 ctx.canvas.height = NUM_OF_ROWS * CELL_HEIGHT;
