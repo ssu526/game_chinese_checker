@@ -1,17 +1,17 @@
-const express = require('express');
-const socketio= require('socket.io');
 const CONSTANTS = require('./constants');
 const getValidNextMoves = require("./moveValidation");
+const socketio= require('socket.io');
 
 /************************************************************************************************/
 /*                                         APP SETUP                                            */
 /************************************************************************************************/
+const express = require('express');
 const app = express();
-const server = app.listen(8080, function(){
-    console.log("listening to 8080...");
-})
 app.use(express.static('public')); 
+const PORT = process.env.PORT || 8080;
+const server = app.listen(PORT);
 
+app.get('/', (req, res)=>res.sendFile(__dirname+'/index.html'));
 const io = socketio(server);
 const rooms = {};
 
