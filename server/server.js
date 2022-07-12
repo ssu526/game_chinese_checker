@@ -1,6 +1,6 @@
 const express = require('express');
 const socketio= require('socket.io');
-const CONSTANTS = require('../constants');
+const CONSTANTS = require('./constants');
 const getValidNextMoves = require("./moveValidation");
 
 /************************************************************************************************/

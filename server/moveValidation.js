@@ -1,4 +1,4 @@
-const CONSTANTS = require('../constants');
+const CONSTANTS = require('./constants');
 
 function getValidNextMoves(room){
     let validNextMoves=[];
