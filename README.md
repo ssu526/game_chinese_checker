@@ -1,9 +1,8 @@
 # Chinese Checkers
-A strategy board game that can be played by two, three, four, or six people.
+A strategy board game that can be played by 2, 3, 4, or 6 people.
 
-Socket.IO is used for real-time, bi-directional communication between web clients and server
 
-[Video Demo](https://www.youtube.com/watch?v=bcEzLUwJJEc)
+[Live Demo](https://chinese-checkers-juja.onrender.com/)
 
 ## Screenshot
 ![github-screenshot1](https://user-images.githubusercontent.com/85205294/178374163-38c4b69d-fb97-47d7-8cf5-935dc3af680e.PNG)
